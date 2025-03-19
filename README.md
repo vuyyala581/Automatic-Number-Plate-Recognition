@@ -1,47 +1,45 @@
 # License Plate Recognition using OpenCV and EasyOCR
 
 ## Overview
-This project uses OpenCV and EasyOCR to detect and recognize vehicle license plate numbers from images. The extracted text is then formatted according to the Indian vehicle registration format.
+This project extracts and recognizes text from vehicle license plates using OpenCV for image processing and EasyOCR for Optical Character Recognition (OCR). The recognized license plate is formatted according to the Indian vehicle registration system.
 
 ## Features
-- Detects license plates in an image.
-- Extracts text using Optical Character Recognition (OCR).
-- Formats and displays the extracted text in the standard Indian license plate format.
-- Highlights the detected license plate in the image.
+- Detects and extracts the license plate from an image.
+- Uses OCR to recognize text from the extracted license plate.
+- Formats the extracted text to match Indian license plate conventions.
+- Highlights and displays the recognized license plate on the original image.
 
-## Prerequisites
-Ensure that you have the following dependencies installed:
-
-```bash
-pip install opencv-python numpy imutils easyocr matplotlib
-```
-
-## File Structure
-```
-|-- project/
-    |-- main.py  # The script containing the implementation
-    |-- img-1.jpg  # Sample image containing a license plate
-    |-- README.md  # Documentation for the project
-```
-
-## Usage
-Run the script using the following command:
+## Requirements
+Install the required dependencies using the following command:
 
 ```bash
-python main.py
+pip install -r requirements.txt
 ```
 
-## Code Explanation
-1. **Load the Image:** Reads the input image containing a vehicle license plate.
-2. **Preprocessing:** Converts the image to grayscale, applies noise reduction, and detects edges.
-3. **Contour Detection:** Finds the potential license plate by detecting contours in the image.
-4. **Extracting the Plate:** Uses contour approximation to locate the number plate region.
-5. **OCR Processing:** EasyOCR extracts text from the detected plate region.
-6. **Formatting Output:** The extracted text is formatted according to the Indian license plate structure.
-7. **Displaying Results:** The license plate is highlighted in the image and the extracted text is printed.
+### `requirements.txt`
+```
+opencv-python
+numpy
+imutils
+matplotlib
+easyocr
+```
 
-## Output Format
-Once the script runs successfully, it will print the detected license plate number and its formatted breakdown:
+## How to Run the Code
+1. Clone the repository or download the script.
+2. Ensure you have Python installed (Python 3.x recommended).
+3. Place the image containing the license plate in the specified path.
+4. Run the script using the command:
+   
+   ```bash
+   python license_plate_recognition.py
+   ```
+   
+5. The recognized license plate text and its formatted breakdown will be displayed in the console.
+6. The script will display an image with the recognized license plate highlighted.
+
+## Expected Output Format
+After running the script, the extracted license plate text is printed in the following format:
 
 ```
 LICENSE PLATE NUMBER: MH20DV2366
@@ -55,19 +53,11 @@ In India, car number plates follow a format of two letters for the state/UT, two
 Example: TN 01 AB 1234 (TN = Tamil Nadu, 01 = RTO code, AB = series, 1234 = unique number)
 ```
 
-## Example Image Output
-The detected license plate is highlighted and displayed using matplotlib.
+## Notes
+- Ensure that the image provided contains a clear and visible license plate for better accuracy.
+- Modify the image path in the script if necessary.
+- If no text is detected, try adjusting the image quality or OCR settings.
 
-## Troubleshooting
-- Ensure that the image file path is correct.
-- If the plate is not detected, try adjusting the contour approximation parameters.
-- If the OCR result is incorrect, ensure that the image quality is good and the plate is clearly visible.
-
-## Future Improvements
-- Improve accuracy by training a custom OCR model.
-- Extend support for multiple images or video stream processing.
-- Implement a web-based interface for real-time license plate recognition.
-
-## License
-This project is open-source and can be modified or distributed freely.
+## Author
+Vuyyala Kavya
 
